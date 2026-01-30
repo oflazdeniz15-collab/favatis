@@ -403,17 +403,22 @@ async def search_artists(q: str):
     
     return [ArtistProfile(**a) for a in artists]
 
-@api_router.get("/artist/{artist_id}")
-async def get_artist_by_id(artist_id: str):
-    artist_doc = await db.artists.find_one({"artist_id": artist_id, "status": "approved"}, {"_id": 0})
+@api_router.get("/artist/tiers")
+async def get_artist_tiers(request: Request, authorization: Optional[str] = Header(None)):
+    user = await get_current_user(request, authorization)
+    if user.role != "artist":
+        raise HTTPException(status_code=403, detail="Not an artist")
+    
+    artist_doc = await db.artists.find_one({"user_id": user.user_id}, {"_id": 0})
     if not artist_doc:
-        raise HTTPException(status_code=404, detail="Artist not found")
+        raise HTTPException(status_code=404, detail="Artist profile not found")
     
-    for field in ['created_at', 'submitted_at', 'approved_at']:
-        if artist_doc.get(field) and isinstance(artist_doc[field], str):
-            artist_doc[field] = datetime.fromisoformat(artist_doc[field])
+    tiers = await db.subscription_tiers.find({"artist_id": artist_doc["artist_id"]}, {"_id": 0}).to_list(100)
+    for tier in tiers:
+        if isinstance(tier['created_at'], str):
+            tier['created_at'] = datetime.fromisoformat(tier['created_at'])
     
-    return ArtistProfile(**artist_doc)
+    return [SubscriptionTier(**t) for t in tiers]
 
 @api_router.post("/artist/tiers")
 async def create_tier(tier: SubscriptionTierCreate, request: Request, authorization: Optional[str] = Header(None)):
