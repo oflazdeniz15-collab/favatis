@@ -640,6 +640,18 @@ async def get_artist_content(request: Request, authorization: Optional[str] = He
     
     return [GatedContent(**c) for c in content_list]
 
+@api_router.get("/artist/{artist_id}")
+async def get_artist_by_id(artist_id: str):
+    artist_doc = await db.artists.find_one({"artist_id": artist_id, "status": "approved"}, {"_id": 0})
+    if not artist_doc:
+        raise HTTPException(status_code=404, detail="Artist not found")
+    
+    for field in ['created_at', 'submitted_at', 'approved_at']:
+        if artist_doc.get(field) and isinstance(artist_doc[field], str):
+            artist_doc[field] = datetime.fromisoformat(artist_doc[field])
+    
+    return ArtistProfile(**artist_doc)
+
 @api_router.get("/admin/applications")
 async def get_pending_applications(request: Request, authorization: Optional[str] = Header(None)):
     user = await get_current_user(request, authorization)
