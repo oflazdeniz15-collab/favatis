@@ -1,0 +1,158 @@
+{
+  "identity": {
+    "name": "Favatis",
+    "persona": "E1 - The Anti-AI Designer",
+    "tone": "Bold, Artistic, Professional, Clean",
+    "audience": "Music Artists (Creators) & Fans (Consumers)"
+  },
+  "typography": {
+    "primary_font": "Plus Jakarta Sans",
+    "secondary_font": "Syne",
+    "mono_font": "JetBrains Mono",
+    "scale": {
+      "h1": "text-5xl md:text-7xl font-bold tracking-tight leading-none font-display",
+      "h2": "text-4xl md:text-5xl font-semibold tracking-tight font-display",
+      "h3": "text-2xl md:text-3xl font-medium tracking-normal font-display",
+      "body": "text-base md:text-lg leading-relaxed text-muted-foreground font-sans",
+      "caption": "text-sm font-medium uppercase tracking-widest text-muted-foreground/80 font-sans"
+    },
+    "imports": [
+      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400&display=swap"
+    ]
+  },
+  "colors": {
+    "theme": "light",
+    "palette": {
+      "primary": {
+        "DEFAULT": "#2E0249",
+        "foreground": "#FFFFFF",
+        "hover": "#1A0129"
+      },
+      "secondary": {
+        "DEFAULT": "#F3F4F6",
+        "foreground": "#1F2937"
+      },
+      "accent": {
+        "DEFAULT": "#A91079",
+        "foreground": "#FFFFFF",
+        "glow": "0 0 20px rgba(169, 16, 121, 0.5)"
+      },
+      "background": "#FFFFFF",
+      "foreground": "#0F172A",
+      "muted": "#F1F5F9",
+      "border": "#E2E8F0"
+    },
+    "gradients": {
+      "hero": "bg-gradient-to-br from-[#2E0249] via-[#570A57] to-[#A91079]",
+      "subtle": "bg-gradient-to-b from-white to-slate-50"
+    }
+  },
+  "layout": {
+    "spacing": {
+      "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+      "section_padding": "py-20 md:py-32",
+      "element_gap": "gap-6 md:gap-12"
+    },
+    "grids": {
+      "marketing": "grid grid-cols-1 md:grid-cols-12 gap-8",
+      "dashboard": "grid grid-cols-1 md:grid-cols-4 gap-6",
+      "cards": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+    },
+    "border_radius": {
+      "default": "rounded-lg",
+      "button": "rounded-full",
+      "card": "rounded-xl"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 rounded-full font-medium transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-primary/20",
+      "secondary": "bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 px-8 rounded-full font-medium transition-all duration-200",
+      "outline": "border-2 border-primary text-primary hover:bg-primary hover:text-white h-11 px-8 rounded-full font-medium transition-all duration-300"
+    },
+    "cards": {
+      "base": "bg-white border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 rounded-xl overflow-hidden group",
+      "hover_effect": "hover:-translate-y-1 hover:border-primary/20"
+    },
+    "inputs": {
+      "default": "h-11 rounded-lg border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-white/70 border border-white/20 shadow-sm",
+    "noise_texture": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")",
+    "shadows": {
+      "soft": "0 4px 20px -2px rgba(0, 0, 0, 0.05)",
+      "glow": "0 0 40px -10px rgba(169, 16, 121, 0.3)"
+    }
+  },
+  "motion": {
+    "transitions": {
+      "default": "transition-all duration-300 ease-out",
+      "slow": "transition-all duration-700 ease-in-out"
+    },
+    "animations": {
+      "fade_in": "animate-in fade-in duration-500",
+      "slide_up": "animate-in slide-in-from-bottom-4 duration-500"
+    }
+  },
+  "image_urls": {
+    "hero": [
+      {
+        "url": "https://images.unsplash.com/photo-1761959154680-81d4b58fb31e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwxfHxtdXNpY2lhbiUyMHBlcmZvcm1pbmclMjBzdGFnZSUyMGNvbmNlcnQlMjBsaWdodHN8ZW58MHx8fHwxNzY5Nzk4NDYyfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Harmonica player with moody stage lighting",
+        "category": "hero_background"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1763889593924-982aef0c705e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwyfHxtdXNpY2lhbiUyMHBlcmZvcm1pbmclMjBzdGFnZSUyMGNvbmNlcnQlMjBsaWdodHN8ZW58MHx8fHwxNzY5Nzk4NDYyfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Electric guitar player on stage",
+        "category": "hero_secondary"
+      }
+    ],
+    "artists": [
+      {
+        "url": "https://images.unsplash.com/photo-1762160767032-9a639bc9f89e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwxfHxhcnRpc3RpYyUyMHNpbmdlciUyMHBvcnRyYWl0JTIwZmFzaGlvbnxlbnwwfHx8fDE3Njk3OTg0NzB8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Moody male artist portrait",
+        "category": "artist_profile"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1751512713235-f1114fd73f97?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwzfHxhcnRpc3RpYyUyMHNpbmdlciUyMHBvcnRyYWl0JTIwZmFzaGlvbnxlbnwwfHx8fDE3Njk3OTg0NzB8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Vibrant artistic female portrait",
+        "category": "artist_profile"
+      }
+    ],
+    "studio": [
+      {
+        "url": "https://images.unsplash.com/photo-1761652556225-1425a7c36247?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzl8MHwxfHNlYXJjaHwzfHxtdXNpYyUyMHJlY29yZGluZyUyMHN0dWRpbyUyMGFydGlzdCUyMGNyZWF0aXZlfGVufDB8fHx8MTc2OTc5ODQ2N3ww&ixlib=rb-4.1.0&q=85",
+        "description": "Collaboration in music studio",
+        "category": "feature_image"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Use 'Syne' font for all Headings (h1-h3) to give the artistic feel.",
+    "Use 'Plus Jakarta Sans' for all body text for maximum readability.",
+    "Implement the 'Tetris' grid for the landing page hero section.",
+    "Use the defined 'Primary Purple' (#2E0249) for branding but keep the main background clean white/off-white.",
+    "Use 'Glassmorphism' for the sticky header and floating action bars.",
+    "Ensure all interactive elements have hover states defined in the 'components' section.",
+    "Use 'lucide-react' for icons.",
+    "For the Artist Dashboard, use the 'High Density' grid layout.",
+    "For the Fan View, use a more spacious, card-based layout.",
+    "Add 'data-testid' to all interactive elements."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not use generic centered layouts.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "Do not apply universal transition (transition: all).",
+    "Do not center align the app container.",
+    "Use modern button styles (pill-shaped or sharp).",
+    "Every interaction needs micro-animations.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Prioritize using pre-existing components from src/components/ui.",
+    "Components MUST use named exports.",
+    "Pages MUST use default exports.",
+    "Use 'sonner' for toasts."
+  ]
+}
