@@ -1,0 +1,23 @@
+{
+    "framework": "nextjs",
+    "buildCommand": "npm run build",
+    "installCommand": "npm install",
+    "devCommand": "npm run dev",
+    "env": {
+        "NEXT_PUBLIC_SUPABASE_URL": "https://emfnnquometodtniwlsz.supabase.co",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVtZm5ucXVvbWV0b2R0bml3bHN6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA1NTMzMzUsImV4cCI6MjA4NjEyOTMzNX0.YwtljN2Wqu0gHbVM2zCudWGB7RR1kZF0Wk72ATo5Nvk",
+        "GEMINI_API_KEY": "AIzaSyBVFSKxuerQiZsBxrRqvGHVUI5HgTTo0ik",
+        "STRIPE_SECRET_KEY": "sk_test_placeholder",
+        "STRIPE_WEBHOOK_SECRET": "whsec_placeholder",
+        "SUPABASE_SERVICE_ROLE_KEY": "placeholder_service_role",
+        "NEXT_PUBLIC_APP_URL": "https://favatis.vercel.app"
+    },
+    "build": {
+        "env": {
+            "GEMINI_API_KEY": "AIzaSyBVFSKxuerQiZsBxrRqvGHVUI5HgTTo0ik",
+            "STRIPE_SECRET_KEY": "sk_test_placeholder",
+            "STRIPE_WEBHOOK_SECRET": "whsec_placeholder",
+            "SUPABASE_SERVICE_ROLE_KEY": "placeholder_service_role"
+        }
+    }
+}

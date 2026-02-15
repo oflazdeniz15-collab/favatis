@@ -206,7 +206,32 @@ CREATE INDEX idx_artist_applications_status ON public.artist_applications(status
 CREATE INDEX idx_artist_applications_user_id ON public.artist_applications(user_id);
 
 -- ============================================
--- 9. HELPER FUNCTIONS
+-- 9. ARTISTS TABLE
+-- Stores artist-specific data and Stripe Connect info
+-- ============================================
+CREATE TABLE public.artists (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    profile_id UUID UNIQUE REFERENCES public.profiles(id) ON DELETE CASCADE,
+    stripe_account_id TEXT UNIQUE, -- Stripe Connect Account ID
+    artist_name TEXT NOT NULL,
+    bio TEXT,
+    genre TEXT,
+    portfolio_url TEXT,
+    social_links JSONB DEFAULT '{}'::JSONB,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX idx_artists_profile_id ON public.artists(profile_id);
+CREATE INDEX idx_artists_stripe_account_id ON public.artists(stripe_account_id);
+
+-- Trigger for artists updated_at
+CREATE TRIGGER update_artists_updated_at
+    BEFORE UPDATE ON public.artists
+    FOR EACH ROW EXECUTE FUNCTION public.update_updated_at_column();
+
+-- ============================================
+-- 10. HELPER FUNCTIONS
 -- ============================================
 
 -- Function to check if user is admin

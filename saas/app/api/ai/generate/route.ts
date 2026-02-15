@@ -3,6 +3,8 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 import { cookies } from 'next/headers';
 
+export const dynamic = 'force-dynamic';
+
 // System prompts for different generation types
 const SYSTEM_PROMPTS: Record<string, string> = {
     bio: `You are a professional music industry copywriter. Generate compelling, authentic artist biographies that:
