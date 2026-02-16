@@ -1,0 +1,28 @@
+{
+    "Header": {
+        "artists": "Artists",
+        "pricing": "Pricing",
+        "login": "Log In",
+        "getStarted": "Get Started",
+        "dashboard": "Dashboard",
+        "admin": "Admin",
+        "signOut": "Sign Out"
+    },
+    "Artists": {
+        "title": "Discover Artists",
+        "subtitle": "Support your favorite musicians and get exclusive access.",
+        "filters": "Filters",
+        "genre": "Genre",
+        "priceRange": "Price Range",
+        "sortBy": "Sort By",
+        "all": "All",
+        "newest": "Newest",
+        "popular": "Popular",
+        "rock": "Rock",
+        "pop": "Pop",
+        "indie": "Indie",
+        "startingPrice": "Monthly starting price",
+        "viewProfile": "View Profile",
+        "noArtists": "No artists found matching your filters."
+    }
+}

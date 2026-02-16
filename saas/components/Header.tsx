@@ -1,17 +1,21 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { Music2, User, LogOut, LayoutDashboard, Settings, ShieldCheck } from 'lucide-react';
+import { useTranslations, useLocale } from 'next-intl';
+import { Link, useRouter, usePathname } from '@/i18n/navigation';
+import { Music2, User, LogOut, LayoutDashboard, Settings, ShieldCheck, Languages } from 'lucide-react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { useRouter } from 'next/navigation';
 
 export default function Header() {
     const supabase = createClientComponentClient();
     const router = useRouter();
+    const pathname = usePathname();
+    const locale = useLocale();
+    const t = useTranslations('Header');
     const [user, setUser] = useState<any>(null);
     const [profile, setProfile] = useState<any>(null);
     const [scrolled, setScrolled] = useState(false);
+    const [isLangOpen, setIsLangOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -52,6 +56,11 @@ export default function Header() {
         router.push('/');
     };
 
+    const toggleLanguage = () => {
+        const nextLocale = locale === 'en' ? 'tr' : 'en';
+        router.push(pathname, { locale: nextLocale });
+    };
+
     return (
         <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'backdrop-blur-xl bg-white/80 border-b border-gray-100 py-3' : 'bg-transparent py-5'
             }`}>
@@ -64,14 +73,19 @@ export default function Header() {
 
                     <div className="hidden md:flex items-center gap-8">
                         <Link href="/artists" className="text-gray-700 hover:text-purple-600 transition-colors font-medium">
-                            Artists
+                            {t('artists')}
                         </Link>
                         <Link href="/pricing" className="text-gray-700 hover:text-purple-600 transition-colors font-medium">
-                            Pricing
+                            {t('pricing')}
                         </Link>
-                        <Link href="/about" className="text-gray-700 hover:text-purple-600 transition-colors font-medium">
-                            About
-                        </Link>
+
+                        <button
+                            onClick={toggleLanguage}
+                            className="flex items-center gap-1.5 text-gray-700 hover:text-purple-600 transition-colors font-medium"
+                        >
+                            <Languages className="h-4 w-4" />
+                            {locale.toUpperCase()}
+                        </button>
 
                         {user ? (
                             <div className="flex items-center gap-4">
@@ -81,7 +95,7 @@ export default function Header() {
                                         className="flex items-center gap-1.5 text-amber-600 hover:text-amber-700 font-bold bg-amber-50 px-3 py-1.5 rounded-lg transition-all"
                                     >
                                         <ShieldCheck className="h-4 w-4" />
-                                        Admin
+                                        {t('admin')}
                                     </Link>
                                 )}
                                 <Link
@@ -89,13 +103,13 @@ export default function Header() {
                                     className="flex items-center gap-1.5 text-purple-600 hover:text-purple-700 font-bold bg-purple-50 px-3 py-1.5 rounded-lg transition-all"
                                 >
                                     <LayoutDashboard className="h-4 w-4" />
-                                    Dashboard
+                                    {t('dashboard')}
                                 </Link>
                                 <div className="h-8 w-px bg-gray-200 mx-2" />
                                 <button
                                     onClick={handleSignOut}
                                     className="text-gray-500 hover:text-red-600 transition-colors p-2 rounded-full hover:bg-red-50"
-                                    title="Sign Out"
+                                    title={t('signOut')}
                                 >
                                     <LogOut className="h-5 w-5" />
                                 </button>
@@ -103,13 +117,13 @@ export default function Header() {
                         ) : (
                             <div className="flex items-center gap-4">
                                 <Link href="/auth/signin" className="text-gray-700 hover:text-purple-600 transition-colors font-medium">
-                                    Log In
+                                    {t('login')}
                                 </Link>
                                 <Link
                                     href="/auth/signup"
                                     className="bg-purple-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-purple-700 transition-all shadow-lg shadow-purple-100"
                                 >
-                                    Get Started
+                                    {t('getStarted')}
                                 </Link>
                             </div>
                         )}

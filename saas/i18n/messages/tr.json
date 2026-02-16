@@ -1,0 +1,28 @@
+{
+    "Header": {
+        "artists": "Sanatçılar",
+        "pricing": "Fiyatlandırma",
+        "login": "Giriş Yap",
+        "getStarted": "Hemen Başla",
+        "dashboard": "Panel",
+        "admin": "Yönetici",
+        "signOut": "Çıkış Yap"
+    },
+    "Artists": {
+        "title": "Sanatçıları Keşfet",
+        "subtitle": "Favori müzisyenlerini destekle ve özel erişim kazan.",
+        "filters": "Filtreler",
+        "genre": "Tür",
+        "priceRange": "Fiyat Aralığı",
+        "sortBy": "Sıralama",
+        "all": "Tümü",
+        "newest": "En Yeni",
+        "popular": "Popüler",
+        "rock": "Rock",
+        "pop": "Pop",
+        "indie": "İndie",
+        "startingPrice": "Aylık başlangıç fiyatı",
+        "viewProfile": "Profili Görüntüle",
+        "noArtists": "Filtrelerinize uygun sanatçı bulunamadı."
+    }
+}
