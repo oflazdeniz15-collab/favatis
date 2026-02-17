@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from '@/components/ui/sonner';
+import { LanguageProvider } from '@/hooks/useLanguage';
+import AIAssistant from '@/components/AIAssistant';
 import './App.css';
 
 import Landing from './pages/Landing';
@@ -43,12 +45,15 @@ function AppRouter() {
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <AppRouter />
-        <Toaster />
-      </BrowserRouter>
-    </div>
+    <LanguageProvider>
+      <div className="App">
+        <BrowserRouter>
+          <AppRouter />
+          <AIAssistant />
+          <Toaster />
+        </BrowserRouter>
+      </div>
+    </LanguageProvider>
   );
 }
 
